@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>   // for isdigit()
+#include <ctype.h> 
 
 #define MAX 100
 
-// Stack for operators
 char stack[MAX];
 int top = -1;
 
@@ -29,7 +28,6 @@ char peek() {
     return stack[top];
 }
 
-// Function to check precedence
 int precedence(char op) {
     switch (op) {
         case '/': return 3;
@@ -40,7 +38,6 @@ int precedence(char op) {
     }
 }
 
-// Function to convert infix to postfix
 void infixToPostfix(char infix[], char postfix[]) {
     int i = 0, k = 0;
     char ch;

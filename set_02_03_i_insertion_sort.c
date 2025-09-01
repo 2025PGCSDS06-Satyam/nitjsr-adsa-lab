@@ -1,5 +1,3 @@
-// Insertion Sort using C ***********************************************************
-
 #include <stdio.h>
 
 int main() {

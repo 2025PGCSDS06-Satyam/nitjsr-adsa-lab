@@ -1,5 +1,3 @@
-// Radix Sort using C ****************************************************************
-
 #include <stdio.h>
 
 int getMax(int arr[], int n) {

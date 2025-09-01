@@ -1,5 +1,3 @@
-// radix exchange Sort using C ****************************************************************
-
 #include <stdio.h>
 
 int getMaxBit(int arr[], int n) {

@@ -37,8 +37,8 @@ int main() {
 
     printf("Enter total number of elements: ");
     scanf("%d", &n);
-
     printf("Enter the array elements: ");
+    
     for (int i = 0; i < n; i++) scanf("%d", &arr[i]);
 
     mergeSortIterative(arr, n);

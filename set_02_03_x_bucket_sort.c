@@ -1,5 +1,3 @@
-// Bucket Sort using C ****************************************************************
-
 #include <stdio.h>
 #include <stdlib.h>
 

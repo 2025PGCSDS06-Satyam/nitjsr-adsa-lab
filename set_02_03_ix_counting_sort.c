@@ -1,5 +1,3 @@
-// Counting Sort using C ****************************************************************
-
 #include <stdio.h>
 
 void countingSort(int arr[], int n) {

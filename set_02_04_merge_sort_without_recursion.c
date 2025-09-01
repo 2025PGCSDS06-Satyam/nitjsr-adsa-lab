@@ -34,6 +34,7 @@ void mergeSortIterative(int arr[], int n) {
 
     while(top >= 0) {
         Frame *f = &stack[top];
+        
         if(f->l >= f->r) { top--; continue; }
 
         int mid = f->l + (f->r - f->l) / 2;

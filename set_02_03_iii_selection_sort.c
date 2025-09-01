@@ -1,5 +1,3 @@
-// Selection Sort Using C ************************************************************
-
 #include <stdio.h>
 
 int main() {

@@ -31,6 +31,7 @@ int main() {
         }
 
         printf("\nUpdated Array:\n");
+        
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLS; j++) {
                 printf("%d ", arr[i][j]);
@@ -52,4 +53,4 @@ int main() {
     }
 
     return 0;
-}
+} 

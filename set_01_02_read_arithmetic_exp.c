@@ -5,7 +5,6 @@
 
 #define MAX 100
 
-// ---- Stack for operators (char) ----
 char opStack[MAX];
 int topOp = -1;
 
@@ -30,7 +29,6 @@ char peekOp() {
     return opStack[topOp];
 }
 
-// ---- Stack for evaluation (int) ----
 int valStack[MAX];
 int topVal = -1;
 
@@ -50,7 +48,6 @@ int popVal() {
     return valStack[topVal--];
 }
 
-// ---- Operator Precedence ----
 int precedence(char op) {
     switch (op) {
         case '/': return 3;
@@ -61,7 +58,6 @@ int precedence(char op) {
     }
 }
 
-// ---- Convert Infix → Postfix ----
 void infixToPostfix(char infix[], char postfix[]) {
     int i = 0, k = 0;
     char ch;
@@ -94,7 +90,6 @@ void infixToPostfix(char infix[], char postfix[]) {
     postfix[k] = '\0';
 }
 
-// ---- Evaluate Postfix ----
 int evaluatePostfix(char postfix[]) {
     int i = 0;
     char ch;

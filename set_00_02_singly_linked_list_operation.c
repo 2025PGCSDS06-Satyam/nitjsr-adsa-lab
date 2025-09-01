@@ -8,7 +8,6 @@ struct Node {
 
 struct Node* head = NULL;
 
-// Function to create a new node
 struct Node* createNode(int value) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     if (!newNode) {
@@ -20,7 +19,6 @@ struct Node* createNode(int value) {
     return newNode;
 }
 
-// Insert at beginning
 void insertAtBeginning(int value) {
     struct Node* newNode = createNode(value);
     newNode->next = head;
@@ -28,7 +26,6 @@ void insertAtBeginning(int value) {
     printf("%d inserted at the beginning.\n", value);
 }
 
-// Insert at end
 void insertAtEnd(int value) {
     struct Node* newNode = createNode(value);
     if (head == NULL) {
@@ -43,7 +40,6 @@ void insertAtEnd(int value) {
     printf("%d inserted at the end.\n", value);
 }
 
-// Insert at specific position (1-based index)
 void insertAtPosition(int value, int position) {
     if (position < 1) {
         printf("Invalid position!\n");
@@ -68,7 +64,6 @@ void insertAtPosition(int value, int position) {
     }
 }
 
-// Delete by value
 void deleteByValue(int value) {
     struct Node* temp = head;
     struct Node* prev = NULL;
@@ -90,7 +85,6 @@ void deleteByValue(int value) {
     printf("Value %d deleted.\n", value);
 }
 
-// Delete by position
 void deleteByPosition(int position) {
     if (head == NULL || position < 1) {
         printf("Invalid position!\n");
@@ -117,7 +111,6 @@ void deleteByPosition(int position) {
     free(temp);
 }
 
-// Search for a value
 void search(int value) {
     struct Node* temp = head;
     int position = 1;
@@ -132,7 +125,6 @@ void search(int value) {
     printf("Value %d not found in the list.\n", value);
 }
 
-// Display list
 void display() {
     if (head == NULL) {
         printf("List is empty!\n");
