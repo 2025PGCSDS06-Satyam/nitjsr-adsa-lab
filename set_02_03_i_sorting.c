@@ -1,116 +1,84 @@
 // Selection Sort Using C ************************************************************
 
-#include<stdio.h>
+#include <stdio.h>
 
-void swap(int *a , int *b){
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
+int main() {
+    int arr[100], n;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
 
-int main(){
-    int arr[100] , number ;
-    printf(" \n enter total number of elements : ");
-    scanf("%d" , &number);
-    printf("\n enter the array elements : ");
-    for(int i = 0 ; i < number ; i++){
-        scanf("%d" , &arr[i]);
-    }
+    printf("Enter elements: ");
+    for (int i = 0; i < n; i++) scanf("%d", &arr[i]);
 
-    for(int i = 0 ; i < number - 1 ; i++){
+    for (int i = 0; i < n - 1; i++) {
         int min = i;
-        for(int j = i ; j < number ; j++){
-            if(arr[j] < arr[min]){
-                swap(&arr[j] , &arr[min]);
-            }
+        for (int j = i + 1; j < n; j++)
+            if (arr[j] < arr[min]) min = j;
+        if (min != i) {
+            int t = arr[i];
+            arr[i] = arr[min];    
+            arr[min] = t;
         }
     }
 
-    printf("\n sorted array is : ");
-
-    for(int i = 0 ; i < number ; i++){
-        printf("%d ",arr[i]);
-    }
+    printf("Sorted array: ");
+    for (int i = 0; i < n; i++) printf("%d ", arr[i]);
     return 0;
 }
+
 
 // Insertion Sort using C ***********************************************************
 
-#include<stdio.h>
+#include <stdio.h>
 
-void swap(int *a , int *b){
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
+int main() {
+    int arr[100], n;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    printf("Enter elements: ");
+    for (int i = 0; i < n; i++) scanf("%d", &arr[i]);
 
-int main(){
-    int arr[100] , number ;
-
-    printf(" \n enter total number of elements : ");
-    scanf("%d" , &number);
-    printf("\n enter the array elements : ");
-    for(int i = 0 ; i < number ; i++){
-        scanf("%d" , &arr[i]);
-    }
-    
-    for(int i = 0 ; i < number ; i++){
-        int j = i;
-        while(j > 0 && arr[j - 1] > arr[j]){
-              swap(&arr[j-1],&arr[j]);
-              j--;
-        }
+    for (int i = 1; i < n; i++) {
+        int key = arr[i], j = i - 1;
+        while (j >= 0 && arr[j] > key) arr[j + 1] = arr[j], j--;
+        arr[j + 1] = key;
     }
 
-    printf("\n sorted array is : ");
-
-    for(int i = 0 ; i < number ; i++){
-        printf("%d ",arr[i]);
-    }
-
+    printf("Sorted array: ");
+    for (int i = 0; i < n; i++) printf("%d ", arr[i]);
     return 0;
 }
+
 
 // Bubble Sort using C *************************************************************
 
-#include<stdio.h>
+#include <stdio.h>
 
-void swap(int *a , int *b){
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
+int main() {
+    int arr[100], n;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+    printf("Enter elements: ");
+    for (int i = 0; i < n; i++) scanf("%d", &arr[i]);
 
-int main(){
-    int arr[100] , number ;
-
-    printf(" \n enter total number of elements : ");
-    scanf("%d" , &number);
-    printf("\n enter the array elements : ");
-    for(int i = 0 ; i < number ; i++){
-        scanf("%d" , &arr[i]);
-    }
-
-    for(int i = number - 1 ; i >= 1 ; i--){
-        int flag = 1;
-        for(int j = 0 ; j <= i - 1 ; j++){
-            if(arr[j] > arr[j+1]){
-                swap(&arr[j] , &arr[j+1]);
-                flag = 0;
+    for (int i = n - 1; i > 0; i--) {
+        int swapped = 0;
+        for (int j = 0; j < i; j++) {
+            if (arr[j] > arr[j + 1]) {
+                int t = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = t;
+                swapped = 1;
             }
         }
-
-        if(flag == 1) break;
+        if (!swapped) break;
     }
 
-    printf("\n sorted array is : ");
-
-    for(int i = 0 ; i < number ; i++){
-        printf("%d ",arr[i]);
-    }
-
+    printf("Sorted array: ");
+    for (int i = 0; i < n; i++) printf("%d ", arr[i]);
     return 0;
 }
+
 
 // Merge Sort using C *************************************************************
 
@@ -134,7 +102,6 @@ void mergeArray(int arr[] , int l , int mid , int r){
     while(i <= mid){
         temp[a++] = arr[i++];
     }
-
     while(j <= r){
         temp[a++] = arr[j++];
     }
@@ -176,6 +143,7 @@ int main(){
     return 0;
 }
 
+
 // Quick Sort using C ****************************************************************
 
 #include<stdio.h> 
@@ -196,11 +164,9 @@ int pivot(int arr[] , int l , int r){
        while(arr[start] <= low  && start <= end){
             start++;
        }
-
        while(arr[end] > low && start <= end){
             end--;
        }
-
        if(start < end){
             swap(&arr[start] , &arr[end]);
        }
@@ -244,6 +210,7 @@ int main(){
     return 0;
 }
 
+
 // Shell Sort using C ****************************************************************
 
 #include<stdio.h>
@@ -280,65 +247,6 @@ int main(){
     }
 
     shellSort(arr, number);
-
-    printf("\n sorted array is : ");
-    for(int i = 0; i < number; i++){
-        printf("%d ", arr[i]);
-    }
-
-    return 0;
-}
-
-// Heap Sort using C ****************************************************************
-
-#include<stdio.h>
-#include<stdlib.h>
-
-void swap(int *a, int *b){
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
-
-void heapify(int arr[], int n, int i){
-    int largest = i;      
-    int left = 2*i + 1;     
-    int right = 2*i + 2;    
-
-    if(left < n && arr[left] > arr[largest])
-        largest = left;
-
-    if(right < n && arr[right] > arr[largest])
-        largest = right;
-
-    if(largest != i){
-        swap(&arr[i], &arr[largest]);
-        heapify(arr, n, largest);
-    }
-}
-
-void heapSort(int arr[], int n){
-    for(int i = n/2 - 1; i >= 0; i--)
-        heapify(arr, n, i);
-
-    for(int i = n-1; i > 0; i--){
-        swap(&arr[0], &arr[i]); 
-        heapify(arr, i, 0);    
-    }
-}
-
-int main(){
-    int arr[100], number;
-
-    printf("\n enter total number of elements : ");
-    scanf("%d", &number);
-    printf("\n enter the array elements : ");
-
-    for(int i = 0; i < number; i++){
-        scanf("%d", &arr[i]);
-    }
-
-    heapSort(arr, number);
 
     printf("\n sorted array is : ");
     for(int i = 0; i < number; i++){
