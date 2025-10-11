@@ -20,5 +20,5 @@ int bipartite() {
 int main() {
     printf("n e: "); scanf("%d %d", &n, &e);
     for (int i = 0, u, v; i < e; i++) scanf("%d %d", &u, &v), g[u][v] = g[v][u] = 1;
-    printf(bipartite() ? "✅ Bipartite\n" : "❌ Not Bipartite\n");
+    printf(bipartite() ? "Bipartite\n" : "Not Bipartite\n");
 }

@@ -24,5 +24,5 @@ int main() {
     for (int i = 0, u, v; i < e; i++) scanf("%d %d", &u, &v), g[u][v] = g[v][u] = 1;
     path[0] = 0; vis[0] = 1;
     hamilton(1);
-    if (!found) printf("❌ No Hamiltonian cycle.\n");
+    if (!found) printf("No Hamiltonian cycle.\n");
 }

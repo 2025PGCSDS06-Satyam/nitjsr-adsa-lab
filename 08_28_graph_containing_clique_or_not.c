@@ -23,5 +23,5 @@ int main() {
     for (int i = 0, u, v; i < e; i++) scanf("%d %d", &u, &v), g[u][v] = g[v][u] = 1;
     printf("m: "); scanf("%d", &m);
     int vtx[20]; findCliques(0, 0, vtx);
-    printf(found ? "✅ Clique of size %d exists.\n" : "❌ No clique of size %d.\n", m);
+    printf(found ? "Clique of size %d exists.\n" : "No clique of size %d.\n", m);
 }
